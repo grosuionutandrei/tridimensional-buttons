@@ -1,0 +1,60 @@
+:root{
+    --mainColor:#b1d4e0;
+    --edgesColor:#0c2d48;
+    --focusColor:#D39E6D;
+    --focusEdge:#E0BDB1;
+}
+.container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100px;
+    height:100px;
+    margin: 0 auto;
+    list-style: none;
+    transform: rotate(318deg) skew(199deg) translate(0, 0);
+     transition: .5s;
+    background-color:var(--mainColor);
+}
+    
+ 
+.edges{
+       box-shadow: -50px 30px 10px var(--mainColor) ; 
+    } 
+
+.container::before{
+        content: "";
+        position: absolute;
+        top: 45px;
+        right: 65px;
+        width: 100px;
+        height: 30px;
+        transform: rotate(90deg) skewX(35deg);
+        background-color: var(--edgesColor);
+    }
+
+.container::after{
+content: "";
+position: absolute;
+top: 99px;
+left: -16px;
+width: 100px;
+height: 21px;
+transform: rotate(180deg) skewX(-55deg);
+background-color: var(--edgesColor);
+          
+}
+
+.container:hover{
+background-color: var(--focusColor);
+cursor: pointer;
+transform-origin: center;
+transform: rotate(360deg) translate(0px ,-20px);
+}
+.container:hover::before{
+    background-color: var(--focusColor);
+}
+.container:hover::after{
+    background-color: var(--focusEdge);
+}
