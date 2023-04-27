@@ -2,10 +2,8 @@
     width:30px;
     height:30px;
     color: #000;padding: 5px;
+    padding: 50px;
 }
 .icon:hover{
-    color: #75e6da;
-}
-.hover{
-    color: #75e6da;
+    color: #fff;
 }

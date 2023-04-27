@@ -3,6 +3,14 @@
     --edgesColor:#0c2d48;
     --focusColor:#D39E6D;
     --focusEdge:#E0BDB1;
+    --firstColor:#0000ff;
+    --firstEdge:#3333FF;
+    --secondColor:#4ADECE;
+    --secondEdge:#75E6DA;
+    --thirdColor:#E8402C;
+    --thirdEdge:#ED6A5A;
+    --fourthColor:#D90368;
+    --fourthEdge:#FC1381;
 }
 .container{
 
@@ -58,3 +66,47 @@ transform: rotate(360deg) translate(0px ,-20px);
 .container:hover::after{
     background-color: var(--focusEdge);
 }
+
+/* first link style on hover  */
+.container:hover.first{
+background-color: var(--firstColor);
+} 
+.first.container:hover::before{
+    background-color:var(--firstColor);
+}
+.first.container:hover::after{
+    background-color: var(--firstEdge);
+}
+
+/* second link element style on hover */
+.container:hover.second{
+    background-color: var(--secondColor);
+    } 
+    .second.container:hover::before{
+        background-color: var(--secondColor);
+    }
+    .second.container:hover::after{
+        background-color: var(--secondEdge);
+    }
+    /* third link element style on hover */
+
+    .container:hover.third{
+        background-color: var(--thirdColor);
+        } 
+        .third.container:hover::before{
+            background-color:var(--thirdColor);
+        }
+        .third.container:hover::after{
+            background-color: var(--thirdEdge);
+        }
+
+     /* fourth link element style on hover */
+     .container:hover.fourth{
+        background-color: var(--fourthColor);
+        } 
+        .fourth.container:hover::before{
+            background-color:var(--fourthColor);
+        }
+        .fourth.container:hover::after{
+            background-color: var(--fourthEdge);
+        }   
