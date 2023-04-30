@@ -27,19 +27,19 @@ const order=['first','second' ,'third' ,'fourth'];
         </Link>
       </Box>
       <Box styleName={order[1]}>
-       <Link>
+       <Link href={'https://www.facebook.com/'} target={'blank'}>
          <FontAwesomeIcon icon={faUser} className={iconStyle.icon}>
          </FontAwesomeIcon>
        </Link>
       </Box>
      <Box styleName={order[2]}>
-      <Link>
+      <Link href={'https://www.google.com/'} target={'blank'}>
         <FontAwesomeIcon icon={faHouse} className={iconStyle.icon}>
         </FontAwesomeIcon>
       </Link>
      </Box>
      <Box styleName={order[3]}>
-      <Link>
+      <Link href={'https://www.oracle.com/'} target={'blank'}>
         <FontAwesomeIcon icon={faCloud} className={iconStyle.icon}>
         </FontAwesomeIcon>
       </Link>
