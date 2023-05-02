@@ -10,6 +10,9 @@ import { Container } from './icons/container';
 import { Link } from './icons/ancors';
 import ulStyle from './presentation/container.module.css';
 import iconStyle from './presentation/icons.module.css'
+import { Popup } from './popup/popup';
+import { Pophome } from './popup/popuphome';
+
 /* To do list => */
 /* {To Add state management for the hover event= in progress } */
 function App() {
@@ -20,6 +23,13 @@ const order=['first','second' ,'third' ,'fourth'];
 
   return (
     <div className="App">
+      <Pophome> 
+        <Popup message={'Click me!'}></Popup>
+        <Popup message={'Click me!'}></Popup>
+        <Popup message={'Click me!'}></Popup>
+        <Popup message={'Click me!'}></Popup>
+      </Pophome>
+     
      <Container className={`${ulStyle.container}`} > 
       <Box styleName={order[0]}>
         <Link href={'https://www.yahoo.com'} target={'blank'}>
