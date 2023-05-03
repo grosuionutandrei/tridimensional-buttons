@@ -12,32 +12,68 @@ import ulStyle from './presentation/container.module.css';
 import iconStyle from './presentation/icons.module.css'
 import { Popup } from './popup/popup';
 import { Pophome } from './popup/popuphome';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import popStyle from'./popup/popup.module.css';
 
 /* To do list => */
 /* {To Add state management for the hover event= in progress } */
 function App() {
 const order=['first','second' ,'third' ,'fourth'];
+const [getClicked,setClicked]=useState('');
+const [getVisibile,setVisibile]=useState('');
+const initialOrder=[0,0,0,0];
+let orderOfAppearence=[...initialOrder];
+
+const isClicked =(e)=>{
+setClicked(true);
+}
+
+
+useEffect(()=>{
+  const timer={timer:''}
+  if(!getClicked){
+    console.log('start');
+    let max=orderOfAppearence.length-1;
+    timer.timer=setInterval( ()=>{
+      let random=Math.floor(Math.random()*max);
+      orderOfAppearence[random]=true;
+      setVisibility();
+    },5000)
+  }
+setClicked(false);
+return (()=>{
+  clearInterval(timer.timer);
+})
+},[getClicked])
+
+
+const setVisibility=()=>{
+  setVisibile(orderOfAppearence.findIndex((elem)=> elem===true));
+  
+  orderOfAppearence=[...initialOrder];
+}
 
 
 
-
+console.log(getVisibile===0?`got it ${getVisibile}`:'noo');
   return (
     <div className="App">
       <Pophome> 
-        <Popup message={'Click me!'}></Popup>
-        <Popup message={'Click me!'}></Popup>
-        <Popup message={'Click me!'}></Popup>
-        <Popup message={'Click me!'}></Popup>
+        <Popup message={'Click me!'} className={`${popStyle.popbody} ${(getVisibile===0)?popStyle.visibile:''}`}></Popup>
+        <Popup message={'Click me!'} className={getVisibile}></Popup>
+        <Popup message={'Click me!'} className={getVisibile}></Popup>
+        <Popup message={'Click me!'} className={getVisibile}></Popup>
       </Pophome>
      
      <Container className={`${ulStyle.container}`} > 
-      <Box styleName={order[0]}>
-        <Link href={'https://www.yahoo.com'} target={'blank'}>
-         <FontAwesomeIcon icon={faEnvelope}  className={iconStyle.icon}/>
+      <Box styleName={order[0]} >
+        <Link href={'https://www.yahoo.com'} target={'blank'} >
+         <FontAwesomeIcon icon={faEnvelope}  className={iconStyle.icon} onClick={isClicked}/>
         </Link>
       </Box>
       <Box styleName={order[1]}>
-       <Link href={'https://www.facebook.com/'} target={'blank'}>
+       <Link href={'https://www.facebook.com/'} id='second' target={'blank'}>
          <FontAwesomeIcon icon={faUser} className={iconStyle.icon}>
          </FontAwesomeIcon>
        </Link>

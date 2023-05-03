@@ -59,6 +59,9 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-  
-    margin-bottom: 6rem;;
+    margin-bottom: 6rem;
+}
+
+.visibile{
+visibility: hidden;
 }
