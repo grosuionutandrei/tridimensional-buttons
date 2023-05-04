@@ -41,6 +41,9 @@ useEffect(()=>{
       setVisibility();
     },5000)
   }
+  if(getClicked){
+    setVisibile(-1);
+  }
 setClicked(false);
 return (()=>{
   clearInterval(timer.timer);
@@ -60,10 +63,10 @@ console.log(getVisibile===0?`got it ${getVisibile}`:'noo');
   return (
     <div className="App">
       <Pophome> 
-        <Popup message={'Click me!'} className={`${popStyle.popbody} ${(getVisibile===0)?popStyle.visibile:''}`}></Popup>
-        <Popup message={'Click me!'} className={getVisibile}></Popup>
-        <Popup message={'Click me!'} className={getVisibile}></Popup>
-        <Popup message={'Click me!'} className={getVisibile}></Popup>
+        <Popup message={'Click me!'} className={`${popStyle.popbody} ${(getVisibile===0)?popStyle.visibile:popStyle.hidden}`}></Popup>
+        <Popup message={'Click me!'} className={`${popStyle.popbody} ${(getVisibile===1)?popStyle.visibile:popStyle.hidden}`}></Popup>
+        <Popup message={'Click me!'} className={`${popStyle.popbody} ${(getVisibile===2)?popStyle.visibile:popStyle.hidden}`}></Popup>
+        <Popup message={'Click me!'} className={`${popStyle.popbody} ${(getVisibile===3)?popStyle.visibile:popStyle.hidden}`}></Popup>
       </Pophome>
      
      <Container className={`${ulStyle.container}`} > 
@@ -74,19 +77,19 @@ console.log(getVisibile===0?`got it ${getVisibile}`:'noo');
       </Box>
       <Box styleName={order[1]}>
        <Link href={'https://www.facebook.com/'} id='second' target={'blank'}>
-         <FontAwesomeIcon icon={faUser} className={iconStyle.icon}>
+         <FontAwesomeIcon icon={faUser} className={iconStyle.icon} onClick={isClicked}>
          </FontAwesomeIcon>
        </Link>
       </Box>
      <Box styleName={order[2]}>
       <Link href={'https://www.google.com/'} target={'blank'}>
-        <FontAwesomeIcon icon={faHouse} className={iconStyle.icon}>
+        <FontAwesomeIcon icon={faHouse} className={iconStyle.icon} onClick={isClicked}>
         </FontAwesomeIcon>
       </Link>
      </Box>
      <Box styleName={order[3]}>
       <Link href={'https://www.oracle.com/'} target={'blank'}>
-        <FontAwesomeIcon icon={faCloud} className={iconStyle.icon}>
+        <FontAwesomeIcon icon={faCloud} className={iconStyle.icon} onClick={isClicked}>
         </FontAwesomeIcon>
       </Link>
      </Box>

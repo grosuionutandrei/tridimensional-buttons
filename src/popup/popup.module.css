@@ -63,5 +63,15 @@
 }
 
 .visibile{
-visibility: hidden;
+    visibility: visible;
+}
+.hidden{
+ visibility: hidden;
+}
+.closePop{
+    position: absolute;
+    top: 0;;
+    left:4.3rem;
+    padding: 5px;
+    cursor: pointer;
 }
