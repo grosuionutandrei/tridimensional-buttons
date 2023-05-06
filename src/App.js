@@ -16,30 +16,28 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import popStyle from'./popup/popup.module.css';
 
-/* To do list => */
-/* {To Add state management for the hover event= in progress } */
 function App() {
 const order=['first','second' ,'third' ,'fourth'];
 const [getClicked,setClicked]=useState('');
 const [getVisibile,setVisibile]=useState('');
 const initialOrder=[0,0,0,0];
+
 let orderOfAppearence=[...initialOrder];
 
 const isClicked =(e)=>{
 setClicked(true);
 }
 
-
+/* timer that controls the popup icon appearence after 15 seconds */
 useEffect(()=>{
   const timer={timer:''}
   if(!getClicked){
-    console.log('start');
     let max=orderOfAppearence.length-1;
     timer.timer=setInterval( ()=>{
       let random=Math.floor(Math.random()*max);
       orderOfAppearence[random]=true;
       setVisibility();
-    },5000)
+    },15000)
   }
   if(getClicked){
     setVisibile(-1);
@@ -50,16 +48,12 @@ return (()=>{
 })
 },[getClicked])
 
-
+/* decide random what popup icon whill be visibile */
 const setVisibility=()=>{
   setVisibile(orderOfAppearence.findIndex((elem)=> elem===true));
-  
   orderOfAppearence=[...initialOrder];
 }
 
-
-
-console.log(getVisibile===0?`got it ${getVisibile}`:'noo');
   return (
     <div className="App">
       <Pophome> 
